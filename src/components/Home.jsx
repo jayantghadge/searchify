@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Searchify from "../assets/searchify-logo.png";
 import Footer from "./Footer";
+import { fetchDatafromApi } from "../utils/api";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -36,6 +37,37 @@ const Home = () => {
       searchQueryHandler();
     }
   };
+
+  const getRandomUrl = () => {
+    const randomSites = ['https://www.goodreads.com/quotes', 'https://www.funtrivia.com/'];
+    return randomSites[Math.floor(Math.random() * randomSites.length)];
+  };
+
+  const handleLuckyClick = async () => {
+    if (searchQuery) {
+      // Fetch the first search result
+      try {
+        const payload = { q: searchQuery, start: 1 };
+        const data = await fetchDatafromApi(payload);
+        if (data.items && data.items.length > 0) {
+          // Redirect to the first search result
+          window.location.href = data.items[0].link;
+        } else {
+          // Handle no search results found
+          alert("No results found for your query");
+        }
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+        // Handle the error appropriately
+      }
+    } else {
+      // Redirect to a random quote or trivia page
+      // You'll need to define a function or a way to get a random URL
+      const randomUrl = getRandomUrl();
+      window.location.href = randomUrl;
+    }
+  };
+  
 
   return (
     <div className="flex flex-col min-h-screen bg-[#212024] w-screen">
@@ -78,7 +110,7 @@ const Home = () => {
           >
             Search
           </button>
-          <button className="bg-[#303134] mx-auto px-4 py-2 rounded-md w-44 sm:w-52 transition-all hover:bg-[#00FFBB] hover:text-[#000000]">
+          <button onClick={handleLuckyClick} className="bg-[#303134] mx-auto px-4 py-2 rounded-md w-44 sm:w-52 transition-all hover:bg-[#00FFBB] hover:text-[#000000]">
             I'm Feeling Lucky
           </button>
         </div>
