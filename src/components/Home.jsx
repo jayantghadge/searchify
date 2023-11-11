@@ -39,7 +39,8 @@ const Home = () => {
   };
 
   const getRandomUrl = () => {
-    const randomSites = ['https://www.goodreads.com/quotes', 'https://www.funtrivia.com/'];
+    const randomSites = ['https://www.randomfactgenerator.com/trivia',
+      'https://www.randomfactgenerator.com',];
     return randomSites[Math.floor(Math.random() * randomSites.length)];
   };
 
@@ -62,7 +63,6 @@ const Home = () => {
       }
     } else {
       // Redirect to a random quote or trivia page
-      // You'll need to define a function or a way to get a random URL
       const randomUrl = getRandomUrl();
       window.location.href = randomUrl;
     }
