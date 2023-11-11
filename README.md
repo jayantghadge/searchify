@@ -42,7 +42,7 @@ Searchify is a custom search engine application built using React, HTML, and Tai
 1. Create a `.env` file in the project root directory and add your Google Custom Search API credentials:
    ```env
    REACT_APP_API_KEY=your-api-key
-   REACT_APP_CX=your-custom-search-engine-id
+   REACT_APP_API_CX=your-custom-search-engine-id
    ```
 
 2. Start the development server:
