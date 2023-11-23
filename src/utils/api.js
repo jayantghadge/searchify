@@ -4,7 +4,6 @@ const API_CX = process.env.REACT_APP_API_CX;
 
 const BASE_URL = "https://www.googleapis.com/customsearch/v1";
 
-console.log(API_KEY);
 const params = {
   key: API_KEY,
   cx: API_CX,
