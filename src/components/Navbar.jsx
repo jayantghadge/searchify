@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center space-x-4">
           <img
-            className="hidden pr-1 mt-2 w-10 h-10 rounded-full md:w-14 md:h-10 md:block"
+            className="hidden pr-1 mt-2 w-10 h-10 rounded-full md:w-14 md:h-14 md:block"
             src={Profile}
             alt=""
           />
