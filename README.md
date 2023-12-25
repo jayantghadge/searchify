@@ -54,7 +54,7 @@ Searchify is a custom search engine application built using React, HTML, and Tai
 
 ## Contributing
 
-We welcome contributions from the open-source community. If you'd like to contribute to Searchify, please follow these steps:
+If you'd like to contribute to Searchify, please follow these steps:
 
 1. Fork the repository.
 
